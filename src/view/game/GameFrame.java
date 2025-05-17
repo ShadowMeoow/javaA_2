@@ -7,6 +7,7 @@ import view.login.FileController;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.ArrayList;
 
 public class GameFrame extends JFrame {
 
@@ -52,9 +53,9 @@ public class GameFrame extends JFrame {
         this.addWindowListener(new java.awt.event.WindowAdapter() {
             @Override
             public void windowClosing(java.awt.event.WindowEvent e) {
-                if (mapModel.getHistory().size() > 1) {
-                    FileController.panelDataSaver(mapModel.getHistory());
-                }
+            if (mapModel.getHistory().size() > 1) {
+                FileController.panelDataSaver(mapModel.getHistory());
+            }
             }
         });
     }

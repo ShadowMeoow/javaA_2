@@ -44,9 +44,9 @@ public class FileController {
 
     /*
     return true when correct
-     */
     // password should be at the second line of account
     // after checking account, otherwise, return false(when account doesn't exist)
+     */
     public static boolean checkPassword(String password, String account, String filePath) {
         ArrayList<String> document = FileController.readerAll(filePath);
         for (int i = 0; i < document.size(); i++) {
@@ -63,9 +63,24 @@ public class FileController {
         return false;
     }
 
+    /*
+    no auto save or save btn
+    should return step
+     */
     public static void panelDataSaver(ArrayList<int[][]> arrayList) {
-
         String s = matrixComputation.historyToString(arrayList);
         FileController.writer(s);
+        FileController.writer(FileController.stepDataSaver() + "");//pseudo
+    }
+
+    //need write
+    public static ArrayList<String> revisedGameData(String account) {
+        ArrayList<String> allData = FileController.readerAll("data.text");
+        return null;
+    }
+
+    //pseudo
+    public static int stepDataSaver() {
+        return 0;
     }
 }

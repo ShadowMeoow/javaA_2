@@ -1,6 +1,6 @@
 import model.MapModel;
 import view.game.GameFrame;
-import view.login.LoginFrame;
+import view.login.LoginChoiceFrame;
 
 import javax.swing.*;
 
@@ -9,8 +9,7 @@ import javax.swing.*;
 public class Main {
     public static void main(String[] args) {
         SwingUtilities.invokeLater(() -> {
-            LoginFrame loginFrame = new LoginFrame(280, 280);
-            loginFrame.setVisible(true);
+            // 创建游戏主界面
             MapModel mapModel = new MapModel(new int[][]{
                     {1, 2, 2, 1},
                     {1, 3, 2, 2},
@@ -19,7 +18,11 @@ public class Main {
             });
             GameFrame gameFrame = new GameFrame(600, 450, mapModel);
             gameFrame.setVisible(false);
-            loginFrame.setGameFrame(gameFrame);
+
+            // 创建登录选择界面
+            LoginChoiceFrame loginChoiceFrame = new LoginChoiceFrame(280, 280);
+            loginChoiceFrame.setGameFrame(gameFrame);
+            loginChoiceFrame.setVisible(true);
         });
     }
 

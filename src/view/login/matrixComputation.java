@@ -18,6 +18,7 @@ public class matrixComputation {
         for (int[][ ] b : a){
             r += matrixComputation.matrixToString(b);
         }
+        r += "matrixEnd";
         return r;
     }
 }
