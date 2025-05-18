@@ -188,10 +188,16 @@ public class GamePanel extends ListenerPanel {
         this.stepLabel.setText(String.format("Step: %d", this.steps));
     }
 
+    /**
+     * getter and setter
+     *
+     * since 2025.5.18
+     *
+     * writer : Cat
+     */
     public void setStepLabel(JLabel stepLabel) {
         this.stepLabel = stepLabel;
     }
-
 
     public void setController(GameController controller) {
         this.controller = controller;
@@ -203,5 +209,9 @@ public class GamePanel extends ListenerPanel {
 
     public int getGRID_SIZE() {
         return GRID_SIZE;
+    }
+
+    public void setModelHistory(ArrayList<int[][]> history) {
+        this.model.setHistory(history);
     }
 }

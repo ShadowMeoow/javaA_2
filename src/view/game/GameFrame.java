@@ -4,6 +4,7 @@ import controller.GameController;
 import model.MapModel;
 import view.FrameUtil;
 import view.login.FileController;
+import view.login.LoginFrame;
 
 import javax.swing.*;
 import java.awt.*;
@@ -15,12 +16,12 @@ public class GameFrame extends JFrame {
     private JButton restartBtn;
     private JButton loadBtn;
     private JButton rollbackBtn;
-
+    private String usernameString;
     private JLabel stepLabel;
     private GamePanel gamePanel;
 
     public GameFrame(int width, int height, MapModel mapModel) {
-        this.setTitle("2025 CS109 Project Demo");
+        this.setTitle("2025 CS109 Project");
         this.setLayout(null);
         this.setSize(width, height);
         gamePanel = new GamePanel(mapModel);
@@ -39,9 +40,12 @@ public class GameFrame extends JFrame {
             gamePanel.requestFocusInWindow();//enable key listener
         });
         this.loadBtn.addActionListener(e -> {
-            String string = JOptionPane.showInputDialog(this, "Input path:");
-            System.out.println(string);
-            gamePanel.requestFocusInWindow();//enable key listener
+//            String string = JOptionPane.showInputDialog(this, "Input path:");
+//            System.out.println(string);
+//            gamePanel.requestFocusInWindow();//enable key listener
+            if (FileController.LoadingHistory(FileController.checkHistory("data.text", usernameString)) != null) {
+                this.gamePanel.setModelHistory(FileController.LoadingHistory(FileController.checkHistory("data.text", usernameString)));
+            }
         });
         this.rollbackBtn.addActionListener(e -> {
             controller.rollbackGame();
@@ -60,4 +64,10 @@ public class GameFrame extends JFrame {
         });
     }
 
+    public String getUsernameString() {
+        return usernameString;
+    }
+    public void setUsernameString(String usernameString) {
+        this.usernameString = usernameString;
+    }
 }

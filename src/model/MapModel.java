@@ -27,6 +27,10 @@ public class MapModel{
         return this.matrix[0].length;
     }
 
+    public void setHistory(ArrayList<int[][]> history) {
+        this.history = history;
+    }
+
     public int getHeight() {
         return this.matrix.length;
     }

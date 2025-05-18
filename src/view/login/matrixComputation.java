@@ -18,7 +18,11 @@ public class matrixComputation {
         for (int[][ ] b : a){
             r += matrixComputation.matrixToString(b);
         }
+<<<<<<< Updated upstream
         r += "matrixEnd";
+=======
+        r += "MatrixEnd";
+>>>>>>> Stashed changes
         return r;
     }
 }
